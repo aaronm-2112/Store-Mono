@@ -32,8 +32,5 @@ jobs:
       - name: Push image to docker hub
         run: docker push aaronpazm/server
 
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{secrets.DIGITAL_OCEAN_ACCESS_TOKEN}}
-        run: doctl compute ssh mono-store
+      - name: SSH into the droplet using ssh action that takes host, key, etc
+        run: sas
