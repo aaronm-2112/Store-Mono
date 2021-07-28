@@ -1,6 +1,6 @@
 import "./App.css";
 import Storefront from "./pages/Storefront/Storefront.component";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Header from "./components/header/header.component";
 import SigninAndSignUp from "./pages/signin-and-signup/signin-and-signup.component";
 import React from "react";

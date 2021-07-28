@@ -1,5 +1,6 @@
 import React from "react";
 import { Auth, provider } from "../../firebase/firebase-utils";
+import { withRouter } from "react-router-dom";
 
 class SignIn extends React.Component {
   constructor() {
@@ -13,14 +14,28 @@ class SignIn extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+
+    Auth.signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(() =>
+        // move to the dashboard
+        this.props.history.push("/")
+      )
+      .catch((err) => alert(err.message));
   }
 
-  googleSignIn() {
-    Auth.signInWithPopup(provider).then((result) => {
-      console.log(result);
-      var credential = result.credential;
-      var token = result.accessToken;
-    });
+  googleSignInPopup() {
+    Auth.signInWithPopup(provider)
+      .then(() => {
+        // move to the dashboard
+        this.props.history.push("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  }
+
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -33,15 +48,29 @@ class SignIn extends React.Component {
           }}
         >
           <label for="email">Email: </label>
-          <input value={this.email} name="email" id="email" required></input>
+          <input
+            type="email"
+            value={this.email}
+            name="email"
+            id="email"
+            onChange={(e) => this.handleChange(e)}
+            required
+          ></input>
           <label for="password">Password: </label>
-          <input value={this.password}></input>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={this.password}
+            onChange={(e) => this.handleChange(e)}
+            required
+          ></input>
 
           <button type="submit" value="Sign In">
             Sign In
           </button>
 
-          <button onClick={() => this.googleSignIn()}>
+          <button onClick={() => this.googleSignInPopup()}>
             Sign In With Google
           </button>
         </form>
@@ -50,4 +79,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);
