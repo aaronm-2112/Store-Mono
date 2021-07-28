@@ -33,12 +33,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header user={user}></Header>
-        <Router>
-          <Switch>
-            <Route exact path="/storefront" component={Storefront}></Route>
-            <Route exact path="/signin" component={SigninAndSignUp}></Route>
-          </Switch>
-        </Router>
+
+        <Switch>
+          <Route exact path="/storefront" component={Storefront}></Route>
+          <Route exact path="/signin" component={SigninAndSignUp}></Route>
+        </Switch>
       </div>
     );
   }
