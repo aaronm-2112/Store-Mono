@@ -33,4 +33,9 @@ jobs:
         run: docker push aaronpazm/server
 
       - name: SSH into the droplet using ssh action that takes host, key, etc
-        run: sas
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          key: ${{secrets.PK}}
+          script: touch file.txt
