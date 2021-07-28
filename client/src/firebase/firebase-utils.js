@@ -16,7 +16,6 @@ const firebaseConfig = {
 const firebaseClient = firebase.initializeApp(firebaseConfig);
 
 // get the auth object out of the firebase client
-const Auth = firebaseClient.auth();
+export const Auth = firebaseClient.auth();
 
-// export it for use elsewhere
-export default Auth;
+export var provider = new firebase.auth.GoogleAuthProvider();
