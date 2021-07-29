@@ -1,6 +1,8 @@
 import React from "react";
 import { Auth } from "../../firebase/firebase-utils";
 
+import "./signup.syles.scss";
+
 class SignUp extends React.Component {
   constructor() {
     super();
@@ -29,7 +31,7 @@ class SignUp extends React.Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="form">
+      <div className="signup">
         <form method="post" onSubmit={(e) => this.handleSubmit(e)}>
           <label for="email">Email: </label>
           <input

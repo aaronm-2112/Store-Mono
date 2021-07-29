@@ -2,6 +2,8 @@ import React from "react";
 import { Auth, provider } from "../../firebase/firebase-utils";
 import { withRouter } from "react-router-dom";
 
+import "./signin.styles.scss";
+
 class SignIn extends React.Component {
   constructor() {
     super();
@@ -40,7 +42,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="signin">
         <form
           method="post"
           onSubmit={(e) => {
