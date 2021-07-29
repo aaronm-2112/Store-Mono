@@ -40,11 +40,10 @@ jobs:
           key: ${{secrets.PK}}
           envs: DOCKER_USERNAME, DOCKER_PASSWORD
           script: |
-            touch file1.txt
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker kill $(docker ps -q)
             docker pull aaronpazm/server
-            docker run -d -p 80:80 aaronpazm/server
+            docker run -d -p 3007:3007 aaronpazm/server
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
