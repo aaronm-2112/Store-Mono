@@ -38,4 +38,9 @@ jobs:
           host: ${{secrets.HOST}}
           username: ${{secrets.USERNAME}}
           key: ${{secrets.PK}}
-          script: touch file.txt
+          script: >
+            touch file1.txt
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
