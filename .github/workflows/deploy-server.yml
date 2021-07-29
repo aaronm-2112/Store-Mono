@@ -43,7 +43,7 @@ jobs:
             touch file1.txt
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker pull aaronpazm/server
-            docker run -p 3000:3000 aaronpazm/server
+            docker run -d -p 3000:3000 aaronpazm/server
             curl http://localhost:3000
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
