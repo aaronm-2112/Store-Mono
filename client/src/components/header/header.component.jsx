@@ -1,10 +1,22 @@
 import React from "react";
 import { Auth } from "../../firebase/firebase-utils";
 import { Link, withRouter } from "react-router-dom";
+import SearchBar from "../search-bar/search-bar.component";
 
-const Header = ({ user }) => {
+import "./header.styles.scss";
+
+const Header = ({ user, history }) => {
   return (
-    <div>
+    <div className="header">
+      <img
+        src="scribble-heart.svg"
+        alt="heart-logo"
+        className="logo"
+        onClick={() => {
+          history.push("/storefront");
+        }}
+      />
+      <SearchBar />
       {user ? (
         <button onClick={() => Auth.signOut()}>Sign Out</button>
       ) : (

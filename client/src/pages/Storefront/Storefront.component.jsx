@@ -1,5 +1,5 @@
 import React from "react";
 
-const Storefront = () => <div>Store Front</div>;
+const Storefront = () => <div></div>;
 
 export default Storefront;
