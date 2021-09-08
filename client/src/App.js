@@ -5,6 +5,7 @@ import Header from "./components/header/header.component";
 import SigninAndSignUp from "./pages/signin-and-signup/signin-and-signup.component";
 import React from "react";
 import { Auth } from "./firebase/firebase-utils";
+import SearchPage from "./pages/search/search.component";
 
 class App extends React.Component {
   constructor() {
@@ -36,6 +37,7 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path="/storefront" component={Storefront}></Route>
+          <Route exact path="/search" component={SearchPage}></Route>
           <Route exact path="/signin" component={SigninAndSignUp}></Route>
         </Switch>
       </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import "./search-bar.scss";
 
+import { withRouter } from "react-router-dom";
+
 class SearchBar extends React.Component {
   constructor() {
     super();
@@ -16,6 +18,9 @@ class SearchBar extends React.Component {
   search = () => {
     console.log("Axios call made");
     // push me to the search results page (component will be Page search and it will have the search-list component)
+
+    const { history } = this.props;
+    history.push("/search");
   };
 
   render() {
@@ -36,4 +41,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);
