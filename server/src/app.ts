@@ -1,14 +1,19 @@
-import express, { Request, Response } from "express";
+import express, { json, Request, Response } from "express";
 import * as path from "path";
+import cors from "cors";
 
 const app = express();
+
+app.use(json());
+app.use(cors());
 
 // treat the react application's build folder as the rppt directory to serve static React assets
 app.use(express.static(path.resolve(__dirname, "../../client/build")));
 
 // api routes
 app.get("/api/v1/*", (req: Request, res: Response) => {
-  return res.sendStatus(201);
+  console.log("In the route");
+  return res.status(201).send(["one", "two"]);
 });
 
 // all non api routes go to the React app
