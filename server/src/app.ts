@@ -13,7 +13,19 @@ app.use(express.static(path.resolve(__dirname, "../../client/build")));
 // api routes
 app.get("/api/v1/*", (req: Request, res: Response) => {
   console.log("In the route");
-  return res.status(201).send(["one", "two"]);
+  const products: { id: number; name: string; price: number }[] = [
+    {
+      id: 1,
+      name: "sandbags",
+      price: 12.5,
+    },
+    {
+      id: 2,
+      name: "crepes",
+      price: 6.5,
+    },
+  ];
+  return res.status(201).send(products);
 });
 
 // all non api routes go to the React app
