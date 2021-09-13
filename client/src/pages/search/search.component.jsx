@@ -1,31 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import SearchItem from "../../components/search-item/search-item.component";
+import SearchList from "../../components/search-list/search-list.component";
+import withSpinner from "../../components/with-spinner/with-spinner.component";
+
+const SearchListWithSpinner = withSpinner(SearchList);
 
 class SearchPage extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      results: [],
-    };
-  }
-
   render() {
-    const products = this.props.products;
+    let { isLoading } = this.props;
     return (
-      <div>
-        Search Page
-        {products.map((product) => {
-          return <SearchItem key={product.id} {...product}></SearchItem>;
-        })}
-      </div>
+      <SearchListWithSpinner isLoading={isLoading}></SearchListWithSpinner>
     );
   }
 }
 
 const mapStateToProps = (root) => ({
-  products: root.search.products,
+  isLoading: root.search.isFetching,
 });
 
-export default connect(mapStateToProps)(SearchPage);
+export default connect(mapStateToProps, null)(SearchPage);

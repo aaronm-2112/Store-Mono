@@ -1,6 +1,12 @@
+.search-item {
+  margin-bottom: 15px;
+}
+
 .search-item img {
-  height: 400px;
+  height: 200px;
   width: auto;
+  border: 1px solid black;
+  margin-bottom: 0px;
 }
 
 .search-item h3 {
@@ -8,6 +14,7 @@
   font-family: "Courier New", Courier, monospace;
   margin-bottom: 2px;
   font-weight: medium;
+  margin-top: 0px;
 }
 
 span {

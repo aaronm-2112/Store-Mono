@@ -1,0 +1,8 @@
+.search-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  flex-grow: 1;
+}
